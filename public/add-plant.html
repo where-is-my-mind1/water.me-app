@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang = "ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <link type = "text/css" rel = "stylesheet" href = "styles/add_plant_styles.css">
+        <title>water.me</title>
+    </head>
+    <body>
+        <header> 
+            <button type = "button"> <img src = "styles/img/back.png" atl = "back"> </button>
+            <div>water.me</div>  
+            <button type = "button"> <img src = "styles/img/search.png" atl = "search"> </button> 
+        </header>
+        <main>
+            <h1>Добавить растение</h1> 
+            <form name="new_plant" action="/api/form/new_plant" method="post"> 
+                <ul>
+                    <li>
+                        <label for = "name"> Имя </label>
+                        <input type = "text" id = "name" placeholder = "Введите имя"/>
+                    </li>
+                    <li>
+                        <label for = "title"> Название </label>
+                        <input type = "text" id = "title" placeholder = "Выбрать из каталога"/>
+                    </li>
+                    <!-- <li>
+                        <label for = "file"> Фотография </label>
+                        <input type = "file" id = "photo" />
+                    </li> -->
+                </ul>
+                <button type = "submit">
+                    Добавить
+                </button>
+                
+            </form>
+        </main>
+        <script src = "scripts/add-plant.js"></script>
+    </body>
+</html>

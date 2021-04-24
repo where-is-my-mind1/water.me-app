@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang = "ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <link type = "text/css" rel = "stylesheet" href = "styles/main_style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com"> 
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;900&display=swap" rel="stylesheet">
+        <title>water.me</title>
+    </head>
+    <body>
+        <header> 
+            <h1>water.me</h1>  <!-- если это бдет картинка, то через альт надо текст-->
+            <a href = "search.html"> <img src = "styles/img/search.png" alt = "search"> </a> <!-- сделать ссылку а не кнопку!!!!! --> 
+        </header>
+            
+        <main> 
+            <section>
+                <h2>Мои растения</h2> 
+                <ul class = "my-plants">
+                    <li class = "my-plant">
+                        <figure>
+                            <div class = "num"> </div> <!-- кружочек для растения, цифра в css через counter-->
+                            <button type = "button"> <img src = "styles/img/delete.png" alt = "delete"> </button> <!-- удалить растение-->
+                        </figure>
+                        <div class = "plant-name" id = "plant_name">Имя растения</div>
+                        <div>Название растения</div>
+                    </li>
+                    <li class = "my-plant">
+                        <figure>
+                            <div class = "num"> </div> <!-- кружочек для растения, цифра в css через counter-->
+                            <button type = "button"> <img src = "styles/img/delete.png" alt = "delete"> </button> <!-- удалить растение-->
+                        </figure>
+                        <div class = "plant-name" id = "plant_name">Имя растения</div>
+                        <div>Название растения</div>
+                    </li>
+                    
+                </ul>
+                
+            </section>
+            
+            <section>
+                <header> <!-- header - заголовочная область секции-->
+                    <h2>Календарь</h2>
+                    <button type = "button" class = "share"> <img src = "styles/img/share.png" alt = "share"> </button> <!--это кнопка! -->
+                </header>
+                <div class = "calendar">
+                    <div>
+                        <button type = "button"> <img src = "styles/img/left-arrow.png" alt = "back"> </button> <!-- стрелки для листания месяцев-->
+                        <p>Месяц, 2021</p> <!-- div наверное , может нужно год и месяц селектом переключать?-->
+                        <button type = "button"> <img src = "styles/img/right-arrow.png" alt = "on"> </button> <!-- стрелки для листания месяцев, это кнопки!!-->
+                    </div>
+                    <ul class = "calendar-weekdays">
+                        <li>Пн</li>
+                        <li>Вт</li>
+                        <li>Ср</li>
+                        <li>Чт</li>
+                        <li>Пт</li>
+                        <li>Сб</li>
+                        <li>Вс</li>
+                    </ul>
+                    <ul class = "calendar-dates"></ul>
+                </div> <!-- Calendar -->
+            </section>
+        </main>
+        <script src = "scripts/script.js"></script>
+    </body>
+</html>

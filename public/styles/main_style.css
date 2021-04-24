@@ -1,0 +1,269 @@
+body {
+    margin: 0 auto;
+    max-width: 480px;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+
+    font-family: 'Nunito', sans-serif;
+}
+
+header
+{
+    width: 100%;
+    height: 50px;
+    background-color: #709566;
+    padding-left: 6%;
+    padding-right: 6%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+h1
+{
+    
+    font-size: 20px;
+    font-weight: 900;
+    color: white;
+
+    position: relative;
+    top: -3px;
+    left: 40%; 
+}
+   
+
+header > a
+{
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    margin-top: 8px;
+    padding: 0;
+}
+
+header > a > img
+{
+    width: 32px;
+    height: 32px;
+}
+
+main
+{
+    width: 100%;
+    padding-left: 6%;
+    padding-right: 6%;
+}
+
+h2
+{
+    font-size: 22px;
+    font-weight: 900;
+    margin-top: 28px;
+    margin-bottom: 12px;
+}
+
+.my-plants
+{
+    width: 100%; /* должно выходить за пределы экрана */
+    padding-left: 0px;
+    display: flex;
+    flex-direction: row; 
+    margin-top: 0px;
+    margin-bottom: 10px;
+
+    counter-reset: section; 
+}
+
+.my-plant
+{
+    height: 225px;
+    width: 40%;
+    border-radius: 16px;
+    background-color:#709566;
+
+    margin-right: 5%;
+    list-style-type: none;
+
+    counter-increment: section;  
+}
+
+figure
+{
+    height: 146px;
+    border-radius: 16px;
+
+    margin: 0px;
+    padding-top: 10px;
+    padding-left: 7%;
+    padding-right: 7%;
+
+    background-image: url("img/plant-img-1.jpg");
+    background-size: 100%;
+    background-position-y: -20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
+.num
+{
+    width: 1.5em;
+    height: 1.5em;
+
+    background-color: #2E4329;
+    border-radius: 0.75em;
+
+    
+}
+
+.num::before
+{
+    content:counter(section);
+    color: white;
+    margin-left: 30%;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+figure > button, img
+{
+    width: 10px;
+    height: 10px;
+
+    background: none;
+    border: none;
+
+    position: relative;
+    
+}
+
+.plant-name
+{
+    margin-top: 8px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+li > div
+{
+    padding-left: 9%;
+    font-weight: 400;
+    font-size: 12px;
+    color: white;
+}
+
+section > header
+{
+    background-color: white;
+    padding: 0px;
+}
+
+.share
+{
+    width: 32px;
+    height: 32px;
+
+    background: none;
+    border: none;
+
+    position: relative;
+    top: 17px;
+}
+
+.share img
+{
+    width: 20px;
+    height: 20px;
+}
+
+.calendar
+{
+    margin-top: 11px;
+}
+
+.calendar div
+{
+    width: 100%;
+    height: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.calendar div p
+{
+
+    height: 32px;
+    /* padding-left: 33%;*/
+    margin: 0px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.calendar div button
+{
+    width: 32px;
+    height: 32px;
+    padding: 0px;
+    background: none;
+    border: none;
+    object-fit: cover;
+}
+
+.calendar-weekdays
+{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 0px;
+    width: 100%;
+    margin-top: 28px;
+    list-style: none;
+}
+
+.calendar-weekdays li
+{
+    font-size: 18px;
+    font-weight: 600;
+    color: #2E4329;
+    text-align: center;
+}
+
+.calendar-dates
+{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 0px;
+    width: 100%;
+    list-style: none;
+    gap: 5px;
+}
+
+.calendar-dates > li
+{
+    font-size: 18px;
+    font-weight: 600;
+    color: #2E4329;
+    text-align: center;
+}
+
+ul.calendar-dates > li.today
+{
+    background-color: #709566;
+    width: 34px;
+    height: 34px;
+    border-radius: 17px;
+    color: white;
+}
+
+ul.calendar-dates > li.other-month
+{
+    color: #BACEB4;
+}
+
