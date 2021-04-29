@@ -12,12 +12,12 @@
 			
 			const nameField = form.elements.namedItem( 'name' );
 			const titleField = form.elements.namedItem( 'title' );
-            //const fileField = form.elements.namedItem( 'file' );
+            const fileField = form.elements.namedItem( 'file' );
 			
 			const data = {
 				name: nameField.value,
 				titleField: titleField.value,
-                //fileField: fileField.value,
+                fileField: fileField[0],
 			};
 			
 			await fetch(
@@ -33,7 +33,7 @@
 			
 			nameField.value = '';
 			titleField.value = '';
-            // fileField.value = '';
+            fileField.value = null;
 		}
 	);
 } )();

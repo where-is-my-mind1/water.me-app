@@ -18,23 +18,23 @@
             <section>
                 <h2>Мои растения</h2> 
                 <ul class = "my-plants">
-                    <li class = "my-plant">
+                    <!-- <li class = "my-plant">
                         <figure>
-                            <div class = "num"> </div> <!-- кружочек для растения, цифра в css через counter-->
-                            <button type = "button"> <img src = "styles/img/delete.png" alt = "delete"> </button> <!-- удалить растение-->
+                            <div class = "num"> </div> 
+                            <button type = "button"> <img src = "styles/img/delete.png" alt = "delete"> </button> 
                         </figure>
                         <div class = "plant-name" id = "plant_name">Имя растения</div>
                         <div>Название растения</div>
                     </li>
                     <li class = "my-plant">
                         <figure>
-                            <div class = "num"> </div> <!-- кружочек для растения, цифра в css через counter-->
-                            <button type = "button"> <img src = "styles/img/delete.png" alt = "delete"> </button> <!-- удалить растение-->
+                            <div class = "num"> </div> 
+                            <button type = "button"> <img src = "styles/img/delete.png" alt = "delete"> </button> 
                         </figure>
                         <div class = "plant-name" id = "plant_name">Имя растения</div>
                         <div>Название растения</div>
-                    </li>
-                    
+                    </li> 
+                -->
                 </ul>
                 
             </section>
@@ -46,9 +46,9 @@
                 </header>
                 <div class = "calendar">
                     <div>
-                        <button type = "button"> <img src = "styles/img/left-arrow.png" alt = "back"> </button> <!-- стрелки для листания месяцев-->
-                        <p>Месяц, 2021</p> <!-- div наверное , может нужно год и месяц селектом переключать?-->
-                        <button type = "button"> <img src = "styles/img/right-arrow.png" alt = "on"> </button> <!-- стрелки для листания месяцев, это кнопки!!-->
+                        <button type = "button" id = "prev_month"> <img src = "styles/img/left-arrow.png" alt = "back"> </button> <!-- стрелки для листания месяцев-->
+                        <p class = "calendar-heading"></p> <!-- div наверное , может нужно год и месяц селектом переключать?-->
+                        <button type = "button" id = "next_month"> <img src = "styles/img/right-arrow.png" alt = "on"> </button> <!-- стрелки для листания месяцев, это кнопки!!-->
                     </div>
                     <ul class = "calendar-weekdays">
                         <li>Пн</li>
@@ -63,6 +63,6 @@
                 </div> <!-- Calendar -->
             </section>
         </main>
-        <script src = "scripts/script.js"></script>
+        <script src = "scripts/calendar.js"></script>
     </body>
 </html>

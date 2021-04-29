@@ -242,7 +242,7 @@ section > header
     padding: 0px;
     width: 100%;
     list-style: none;
-    gap: 5px;
+    gap: 15px;
 }
 
 .calendar-dates > li
@@ -259,7 +259,13 @@ ul.calendar-dates > li.today
     width: 34px;
     height: 34px;
     border-radius: 17px;
+
     color: white;
+    text-align: center;
+    
+    position: relative;
+    left: 23%;
+
 }
 
 ul.calendar-dates > li.other-month

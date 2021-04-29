@@ -20,16 +20,49 @@ const jsonParser = body_parser_1.default.json();
 const plantsFile = path_1.resolve(rootPath, 'plants.json');
 app.post('/api/form/new_plant', jsonParser, async (request, response) => {
     const data = request.body;
-    let feedbacks;
+    let plantInfo;
     try {
         const content = await promises_1.readFile(plantsFile, 'utf8');
-        feedbacks = JSON.parse(content);
+        plantInfo = JSON.parse(content);
     }
     catch (_error) {
-        feedbacks = [];
+        plantInfo = [];
     }
-    feedbacks.push(data);
-    await promises_1.writeFile(plantsFile, JSON.stringify(feedbacks), 'utf8');
+    plantInfo.push(data);
+    await promises_1.writeFile(plantsFile, JSON.stringify(plantInfo), 'utf8');
     response.send('OK');
 });
+/* type plantNameTitle = {
+    name: string;
+    title: string;
+    // file: any;
+}; */
+/* app.get(
+    '/api/form/existing_plant',
+    jsonParser,
+    async ( response: Express.Response ) =>
+    {
+        // const data = request.body as plantNameTitle;
+        //let plantInfo: plantNameTitle[];
+        
+        try
+        {
+            const content = await readFile( plantsFile, 'utf8' );
+            
+            plantInfo = JSON.parse( content );
+        }
+        catch ( _error )
+        {
+            plantInfo = [];
+        }
+        
+        await writeFile(
+            plantsFile,
+            JSON.stringify( plantInfo ),
+            'utf8',
+        );
+        
+        response.send( 'OK' );
+    },
+); */ 
 //# sourceMappingURL=index.js.map

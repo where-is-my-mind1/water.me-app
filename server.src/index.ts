@@ -26,7 +26,7 @@ const plantsFile = resolve( rootPath, 'plants.json' );
 type FormPlant = {
 	name: string;
 	title: string;
-	// file: string;
+	file: any;
 };
 
 app.post(
@@ -35,27 +35,62 @@ app.post(
 	async ( request: Express.Request, response: Express.Response ) =>
 	{
 		const data = request.body as FormPlant;
-		let feedbacks: FormPlant[];
+		let plantInfo: FormPlant[];
 		
 		try
 		{
 			const content = await readFile( plantsFile, 'utf8' );
 			
-			feedbacks = JSON.parse( content );
+			plantInfo = JSON.parse( content );
 		}
 		catch ( _error )
 		{
-			feedbacks = [];
+			plantInfo = [];
 		}
 		
-		feedbacks.push( data );
+		plantInfo.push( data );
 		
 		await writeFile(
 			plantsFile,
-			JSON.stringify( feedbacks ),
+			JSON.stringify( plantInfo ),
 			'utf8',
 		);
 		
 		response.send( 'OK' );
 	},
 );
+
+/* type plantNameTitle = {
+	name: string;
+	title: string;
+	// file: any;
+}; */ 
+
+/* app.get(
+	'/api/form/existing_plant',
+	jsonParser,
+	async ( response: Express.Response ) =>
+	{
+		// const data = request.body as plantNameTitle;
+		//let plantInfo: plantNameTitle[];
+		
+		try
+		{
+			const content = await readFile( plantsFile, 'utf8' );
+			
+			plantInfo = JSON.parse( content );
+		}
+		catch ( _error )
+		{
+			plantInfo = [];
+		}
+		
+		await writeFile(
+			plantsFile,
+			JSON.stringify( plantInfo ),
+			'utf8',
+		); 
+		
+		response.send( 'OK' );
+	},
+); */
