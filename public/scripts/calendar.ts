@@ -3,11 +3,11 @@
 
 /**
  * Возвращает перечень дат для месяца
- * @param {number} year Год
- * @param {number} month Месяц (1-12)
+ * @param year Год
+ * @param month Месяц (1-12)
  */
 
-function getMonthDates( year, month )
+function getMonthDates( year:number, month:number )
 {
     const lastPrevDate = new Date(year, month  - 1, 0).getDate();
     const lastCurDate = new Date(year, month, 0).getDate();
@@ -22,19 +22,16 @@ function getMonthDates( year, month )
     const weeksInMonth = Math.ceil(daysBeforeLastInMonth / 7); 
 
     /** @type { 'prev' | 'current' | 'next' } */
-    let monthType = startFromPrevMonth ? 'prev' : 'current';
-    /** @type {number} */
-    let date = fromDate - 1 ;
+    let monthType:string = startFromPrevMonth ? 'prev' : 'current';
+    let date:number = fromDate - 1 ;
 
-    /** @type {Date[]} */
-    const dates = []; 
+    const dates:Date[] = []; 
 
     for ( let i = 0; i < weeksInMonth * 7; i++)
     {
         date++;
 
-        /** @type {number} */
-        let monthAddition; 
+        let monthAddition:number; 
         
         switch( monthType )
         {
@@ -76,7 +73,7 @@ function getMonthDates( year, month )
  * возвращает день недели, 1-7 (с понедельника) 
  * @param {Date} date Дата
  */
-function getDayOfWeek( date )
+function getDayOfWeek( date:Date )
 {
     let day = date.getDay();
     if (day === 0)
@@ -90,7 +87,7 @@ function getDayOfWeek( date )
  * Возвращает строку - название месяца
  * @param {number} month 
  */
-function getMonthName( month )
+function getMonthName( month:number )
 {
     switch ( month )
     {
@@ -125,14 +122,13 @@ function getMonthName( month )
 
 /**
  * Создает разметку ячейки календаря
- * @param {Date} todayDate Текущая дата 
- * @param {Number} selectedMonth Выбранный месяц (1-12)
- * @param {Date} itemDate Дата ячейки календаря
+ * @param todayDate Текущая дата 
+ * @param selectedMonth Выбранный месяц (1-12)
+ * @param itemDate Дата ячейки календаря
  */
-function createCalendarItem( todayDate, selectedMonth, itemDate )
+function createCalendarItem( todayDate: Date, selectedMonth: number, itemDate: Date )
 {
-    /** @type {string[]} */
-    const classNames = [];
+    const classNames:string[] = [];
 
     
     if ( selectedMonth - 1 != itemDate.getMonth() ) 
@@ -157,13 +153,14 @@ function createCalendarItem( todayDate, selectedMonth, itemDate )
     `
 }
 
+const currentDate: Date = new Date(); 
+let calendarYear: number = currentDate.getFullYear();
+let calendarMonth: number = currentDate.getMonth() + 1;
 
 /**
  * Отрисовывает календарь
- * @param {Number} curYear 
- * @param {Number} curMonth 
  */
-function main( curYear, curMonth )
+export function makeCalendar()
 {
     const calendarElement = document.querySelector( 'ul.calendar-dates' );
     const monthName = document.querySelector( 'p.calendar-heading' );
@@ -171,25 +168,26 @@ function main( curYear, curMonth )
     const today = new Date();
    
 
-    const dates = getMonthDates( curYear, curMonth );
+    const dates = getMonthDates( calendarYear, calendarMonth );
     const html = dates 
         .map(
-            ( date ) => createCalendarItem( today, curMonth, date )
+            ( date ) => createCalendarItem( today, calendarMonth, date )
         )
         .join( ' ' );
 
     calendarElement.innerHTML = html;
-    monthName.innerHTML = getMonthName( curMonth );
+    monthName.innerHTML = getMonthName( calendarMonth );
 }
 
-let calendarYear = 2021;
-let calendarMonth = 4;
 
-function seeNextMonth()
+/**
+ * Отображает следующий месяц календаря
+ */
+export function seeNextMonth()
 {
     const calendarElement = document.querySelector( 'ul.calendar-dates' );
     const calendarDates = calendarElement.childNodes;
-    let i;
+    let i: number;
     for ( i = 0; i < calendarDates.length; i++ )
     {
         calendarElement.removeChild( calendarDates[i] );
@@ -207,14 +205,17 @@ function seeNextMonth()
         calendarMonth = calendarMonth + 1;
     }
 
-    main( calendarYear, calendarMonth );
+    makeCalendar();
 }
 
-function seePrevMonth()
+/**
+ * отображает предыдущий месяц календаря
+ */
+export function seePrevMonth()
 {
     const calendarElement = document.querySelector( 'ul.calendar-dates' );
     const calendarDates = calendarElement.childNodes;
-    let i;
+    let i: number;
     for ( i = 0; i < calendarDates.length; i++ )
     {
         calendarElement.removeChild( calendarDates[i] );
@@ -230,43 +231,6 @@ function seePrevMonth()
         calendarMonth = calendarMonth - 1;
     }
 
-    main( calendarYear, calendarMonth );
+    makeCalendar();
 }
 
-const nextMonthButton = document.getElementById( 'next_month' );
-nextMonthButton.addEventListener( 'click', seeNextMonth );
-
-const prevMonthButton = document.getElementById( 'prev_month' );
-prevMonthButton.addEventListener( 'click', seePrevMonth );
-
-
-
-/**
-     * Возвращает разметку одного растения
-     * @param {String} plantName 
-     * @param {String} plantTitle
-     */
- function createPlantItem( plantName, plantTitle )
- {
-   return /* html */ `
-         <li class = "my-plant">
-             <figure>
-             <div class = "num"> </div> <!-- кружочек для растения, цифра в css через counter-->
-             <button type = "button"> <img src = "styles/img/delete.png" alt = "delete"> </button> <!-- удалить растение-->
-         </figure>
-         <div class = "plant-name" id = "plant_name">${ plantName }</div>
-         <div>${ plantTitle }</div>
-         </li>
-         `
- }
-
- function addPlant()
- {
-     const plantUl = document.querySelector( 'ul.my-plants' );
-     const html = createPlantItem( "Настя", "кактус" );
-     plantUl.innerHTML = html;
- }
-
-
-main( calendarYear,  calendarMonth );
-addPlant();

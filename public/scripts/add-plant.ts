@@ -2,17 +2,16 @@
 {
 	'use strict';
 	
-	/** @type {HTMLFormElement} */
-	const form = document.forms.namedItem( 'new_plant' );
+	const form = <HTMLFormElement>document.forms.namedItem( 'new_plant' );
 	form.addEventListener(
 		'submit',
 		async ( event ) =>
 		{
 			event.preventDefault();
 			
-			const nameField = form.elements.namedItem( 'name' );
-			const titleField = form.elements.namedItem( 'title' );
-            const fileField = form.elements.namedItem( 'file' );
+			const nameField = <RadioNodeList>form.elements.namedItem( 'name' );
+			const titleField = <RadioNodeList>form.elements.namedItem( 'title' );
+            const fileField = <RadioNodeList>form.elements.namedItem( 'file' );
 			
 			const data = {
 				name: nameField.value,
