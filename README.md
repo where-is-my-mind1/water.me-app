@@ -6,6 +6,7 @@
 
 Для запуска выполните:
 ```
-npm install
+npm build
 npm start
 ```
+Открываем в браузере: http://localhost:2348/
