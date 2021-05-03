@@ -9,4 +9,4 @@
 npm build
 npm start
 ```
-Открываем в браузере: http://localhost:2348/
+Далее откройте в браузере: http://localhost:2348/
