@@ -18,7 +18,7 @@
 		"inlineSources": true,
 		"removeComments": true,
 		
-		"outDir": "./public/scripts/"
+		"outDir": "/Users/anastasiatkachenko/Documents/GitHub/water.me-main/public"
 	},
 	"exclude": [
 		"node_modules",

@@ -19,7 +19,7 @@ addPlantButton.addEventListener( 'click', (event: MouseEvent) => {
 makeCalendar();
 
 let myPlant = new plant( "Name", "Title", 5, "love");
-addPlant( myPlant );
+// addPlant( myPlant );
 
 const plantOnClick = <HTMLElement>document.querySelector( 'li.my-plant' );
 plantOnClick.addEventListener( 'click', (event: MouseEvent) => goToPlantPage( myPlant ) );

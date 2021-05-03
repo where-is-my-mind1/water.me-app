@@ -116,7 +116,7 @@ function getMonthName( month:number )
         case 12:
             return "Декабрь";
         default:
-            return null;
+            return '/0';
     }
 }
 
@@ -162,8 +162,8 @@ let calendarMonth: number = currentDate.getMonth() + 1;
  */
 export function makeCalendar()
 {
-    const calendarElement = document.querySelector( 'ul.calendar-dates' );
-    const monthName = document.querySelector( 'p.calendar-heading' );
+    const calendarElement = <HTMLElement>document.querySelector( 'ul.calendar-dates' );
+    const monthName = <HTMLElement>document.querySelector( 'p.calendar-heading' );
     
     const today = new Date();
    
@@ -176,7 +176,8 @@ export function makeCalendar()
         .join( ' ' );
 
     calendarElement.innerHTML = html;
-    monthName.innerHTML = getMonthName( calendarMonth );
+    let newMonthName: string = getMonthName( calendarMonth );
+    monthName.innerHTML = newMonthName;
 }
 
 
@@ -185,27 +186,31 @@ export function makeCalendar()
  */
 export function seeNextMonth()
 {
-    const calendarElement = document.querySelector( 'ul.calendar-dates' );
-    const calendarDates = calendarElement.childNodes;
-    let i: number;
-    for ( i = 0; i < calendarDates.length; i++ )
+    const calendarElement = <HTMLElement>document.querySelector( 'ul.calendar-dates' );
+    if ( calendarElement )
     {
-        calendarElement.removeChild( calendarDates[i] );
+        const calendarDates = calendarElement.childNodes;
+        let i: number;
+        for ( i = 0; i < calendarDates.length; i++ )
+        {
+            calendarElement.removeChild( calendarDates[i] );
+        }
+        
+        
+
+        if ( calendarMonth === 12 )
+        {
+            calendarMonth = 1;
+            calendarYear = calendarYear + 1;
+        }
+        else
+        {
+            calendarMonth = calendarMonth + 1;
+        }
+
+        makeCalendar();
     }
     
-    
-
-    if ( calendarMonth === 12 )
-    {
-        calendarMonth = 1;
-        calendarYear = calendarYear + 1;
-    }
-    else
-    {
-        calendarMonth = calendarMonth + 1;
-    }
-
-    makeCalendar();
 }
 
 /**
@@ -214,23 +219,27 @@ export function seeNextMonth()
 export function seePrevMonth()
 {
     const calendarElement = document.querySelector( 'ul.calendar-dates' );
-    const calendarDates = calendarElement.childNodes;
-    let i: number;
-    for ( i = 0; i < calendarDates.length; i++ )
+    if ( calendarElement )
     {
-        calendarElement.removeChild( calendarDates[i] );
-    }
+        const calendarDates = calendarElement.childNodes;
+        let i: number;
+        for ( i = 0; i < calendarDates.length; i++ )
+        {
+            calendarElement.removeChild( calendarDates[i] );
+        }
 
-    if ( calendarMonth === 1 )
-    {
-        calendarMonth = 12;
-        calendarYear = calendarYear - 1;
-    }
-    else
-    {
-        calendarMonth = calendarMonth - 1;
-    }
+        if ( calendarMonth === 1 )
+        {
+            calendarMonth = 12;
+            calendarYear = calendarYear - 1;
+        }
+        else
+        {
+            calendarMonth = calendarMonth - 1;
+        }
 
-    makeCalendar();
+        makeCalendar();
+    }
+    
 }
 

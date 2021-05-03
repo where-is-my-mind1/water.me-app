@@ -28,7 +28,7 @@ type FormPlant = {
 	title: string;
 	watering: number;
 	light: string;
-	file: any;
+	// file: any;
 };
 
 app.post(
