@@ -60,8 +60,8 @@ h2
 {
     font-size: 22px;
     font-weight: 900;
-    margin-top: 28px;
-    margin-bottom: 12px;
+    /*margin-top: 28px;
+    margin-bottom: 12px;*/
 }
 
 .my-plants
@@ -76,7 +76,8 @@ h2
     counter-reset: section; 
 }
 
-.my-plant
+
+.my-plant, .add-plant
 {
     height: 225px;
     width: 40%;
@@ -87,6 +88,12 @@ h2
     list-style-type: none;
 
     counter-increment: section;  
+}
+
+.add-plant
+{
+    background-image: url('img/add.png');
+    background-position-x: 50%;
 }
 
 figure
@@ -272,4 +279,5 @@ ul.calendar-dates > li.other-month
 {
     color: #BACEB4;
 }
+
 

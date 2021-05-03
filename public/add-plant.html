@@ -8,9 +8,9 @@
     </head>
     <body>
         <header> 
-            <button type = "button"> <img src = "styles/img/back.png" atl = "back"> </button>
+            <a href = "main.html"> <img src = "styles/img/back.png" atl = "back"> </a>
             <div>water.me</div>  
-            <button type = "button"> <img src = "styles/img/search.png" atl = "search"> </button> 
+            <a href = "search.html"> <img src = "styles/img/search.png" alt = "search"> </a>
         </header>
         <main>
             <h1>Добавить растение</h1> 
@@ -23,6 +23,18 @@
                     <li>
                         <label for = "title"> Название </label>
                         <input type = "text" id = "title" placeholder = "Выбрать из каталога"/>
+                    </li>
+                    <li>
+                        <label for = "wateringFrequency"> Сколько раз поливать в неделю? </label>
+                        <input type = "text" id = "wateringFrequency" placeholder = "Введите число раз в неделю"/>
+                    </li>
+                    <li>
+                        <label for = "lightAttitude"> Любит свет? </label>
+                        <select id = "lightAttitude">
+                            <option disabled selected>не выбрано</option>
+                            <option>Любит</option>
+                            <option>Не любит</option>
+                        </select>
                     </li>
                     <li>
                         <label for = "file"> Фотография </label>

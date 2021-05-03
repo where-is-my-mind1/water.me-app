@@ -26,6 +26,8 @@ const plantsFile = resolve( rootPath, 'plants.json' );
 type FormPlant = {
 	name: string;
 	title: string;
+	watering: number;
+	light: string;
 	file: any;
 };
 

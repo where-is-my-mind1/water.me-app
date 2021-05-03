@@ -1,3 +1,5 @@
+//@ts-check
+
 ( function()
 {
 	'use strict';
@@ -11,12 +13,16 @@
 			
 			const nameField = <RadioNodeList>form.elements.namedItem( 'name' );
 			const titleField = <RadioNodeList>form.elements.namedItem( 'title' );
-            const fileField = <RadioNodeList>form.elements.namedItem( 'file' );
+			const wateringFrequencyField = <RadioNodeList>form.elements.namedItem( 'wateringFrequency' );
+			const lightAttitudeField = <RadioNodeList>form.elements.namedItem( 'lightAttitude' );
+            // const fileField = <RadioNodeList>form.elements.namedItem( 'file' );
 			
 			const data = {
 				name: nameField.value,
-				titleField: titleField.value,
-                fileField: fileField[0],
+				title: titleField.value,
+				wateringFrequency: wateringFrequencyField.value,
+				lightAttitude: lightAttitudeField.value,
+                // fileField: fileField[0],
 			};
 			
 			await fetch(
@@ -32,7 +38,11 @@
 			
 			nameField.value = '';
 			titleField.value = '';
-            fileField.value = null;
+			wateringFrequencyField.value = '';
+			lightAttitudeField.value = '';
+            // fileField.value = null;
 		}
 	);
 } )();
+
+export {};
